@@ -1,0 +1,12 @@
+<?php
+
+namespace App\Services\{{serviceName}}\Contracts;
+
+/**
+ * Interface {{serviceName}}Contract
+ * @package App\Services\{{serviceName}}\Contracts
+ */
+interface {{serviceName}}Contract
+{
+    //
+}

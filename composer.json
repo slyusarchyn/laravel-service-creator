@@ -1,0 +1,32 @@
+{
+  "name": "slyusarchyn/laravel-service-creator",
+  "description": "Laravel service creator",
+  "type": "library",
+  "license": "GPL-2.0",
+  "keywords": [
+    "laravel",
+    "package",
+    "service creator"
+  ],
+  "authors": [
+    {
+      "name": "Alexander Slyusarchyn",
+      "email": "sashaslyusarchyn@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": "^7.1.3"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.0"
+  },
+  "autoload": {
+    "classmap": [
+      "src"
+    ],
+    "psr-4": {
+      "Slyusarchyn\\LaravelServiceCreatorServiceProvider\\": "src"
+    }
+  }
+}
