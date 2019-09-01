@@ -1,0 +1,37 @@
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use App\Services\{{serviceName}}\Contracts\{{serviceName}}Contract;
+use App\Services\{{serviceName}}\{{serviceName}};
+
+/**
+ * Class {{serviceName}}ServiceProvider
+ * @package App\Providers
+ */
+class {{serviceName}}ServiceProvider extends ServiceProvider
+{
+    /**
+     * Register services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+
+    /**
+     * Bootstrap services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $this->app->bind(
+            {{serviceName}}Contract::class,
+            {{serviceName}}::class
+        );
+    }
+}
