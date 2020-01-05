@@ -8,6 +8,7 @@ use Illuminate\Filesystem\Filesystem;
 
 /**
  * Class ServiceMakeCommand
+ *
  * @package App\Console\Commands
  * @author  Alexander Slyusarchyn <alex.slyusarchyn@gmail.com>
  */
@@ -52,7 +53,7 @@ class ServiceMakeCommand extends Command
     public function handle()
     {
         $name = ucfirst($this->argument("name"));
-        $sp = $this->option('p');
+        $sp   = $this->option('p');
 
         if (!preg_match("/Service$/", $name)) {
             $name .= "Service";
@@ -63,6 +64,8 @@ class ServiceMakeCommand extends Command
             $this->makeServiceContract($name);
 
             if ($sp) {
+                $this->makeServiceProvider($name);
+            } elseif ($this->confirm('Create a service provider?')) {
                 $this->makeServiceProvider($name);
             }
 
@@ -77,7 +80,7 @@ class ServiceMakeCommand extends Command
      */
     protected function getStub($type)
     {
-        return file_get_contents(__DIR__ . "/stubs/{$type}.stub");
+        return file_get_contents(__DIR__."/stubs/{$type}.stub");
     }
 
     /**
@@ -91,7 +94,7 @@ class ServiceMakeCommand extends Command
             $this->getStub("service")
         );
 
-        $dirPath = app_path("Services/" . $name);
+        $dirPath = app_path("Services/".$name);
         if (!$this->files->exists($dirPath)) {
             $this->files->makeDirectory($dirPath, 0755, true);
         }
@@ -146,7 +149,7 @@ class ServiceMakeCommand extends Command
             $this->files->makeDirectory($dirPath, 0755, true);
         }
 
-        $filePath = app_path("Providers/{$name}ServiceProvider.php");
+        $filePath = app_path("Providers/{$name}Provider.php");
         if ($this->files->exists($filePath)) {
             $this->error("Service provider already exist!");
         } else {
