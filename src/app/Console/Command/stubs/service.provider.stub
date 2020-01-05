@@ -7,10 +7,10 @@ use App\Services\{{serviceName}}\Contracts\{{serviceName}}Contract;
 use App\Services\{{serviceName}}\{{serviceName}};
 
 /**
- * Class {{serviceName}}ServiceProvider
+ * Class {{serviceName}}Provider
  * @package App\Providers
  */
-class {{serviceName}}ServiceProvider extends ServiceProvider
+class {{serviceName}}Provider extends ServiceProvider
 {
     /**
      * Register services.
